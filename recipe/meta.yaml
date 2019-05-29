@@ -7,11 +7,10 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: cc749e5742986b20a440672a2a426b2b72598b179b411163768584009f44d445
+  sha256: 1e2446deeeb955e2e3e2a1e21de7428c9eeced29a5a4dae9d60cb386ba98186b
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
 
