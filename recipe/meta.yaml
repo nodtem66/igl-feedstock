@@ -1,5 +1,5 @@
 {% set name = "igl" %}
-{% set version = "0.1" %}
+{% set version = "0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: db9100a87122f20a3b2dc7b908b8818a9b3a794abb487ab74af3af0692e50cda
+  sha256: 1ddde26de52f0e1c97d4291f7973b52eef63bb2471646460679b269cca367386
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<31]
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
