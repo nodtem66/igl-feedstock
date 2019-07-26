@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: fa5c317c66be3f67a635bde1e5863e17bd024c02bc24c96949666c2b9deb885f
+  sha256: 3ee336f6a7f7c74b8fcb535d9e7428627733df64cd557532b4c4808664ef0c08
 
 build:
   number: 0
@@ -20,15 +20,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - dlib  # [win]
   host:
     - python
     - pip
-    - dlib  # [win]
     - libblas
     - libcblas
     - make
-    - numpy=1.13
+    - numpy
     - scipy
   run:
     - python
