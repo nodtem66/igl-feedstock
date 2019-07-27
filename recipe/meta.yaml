@@ -27,7 +27,7 @@ requirements:
     - libblas
     - libcblas
     - make
-    - numpy  # [1.11 win]
+    - numpy=1.11
     - scipy
   run:
     - python
