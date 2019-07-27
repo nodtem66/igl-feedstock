@@ -23,6 +23,7 @@ requirements:
   host:
     - python
     - pip
+    - dlib  # [win]
     - libblas
     - libcblas
     - make
