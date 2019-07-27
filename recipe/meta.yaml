@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: 641915e0737602b54f218225f73be8854317625187edadbda2fa5630534c18b2
+  sha256: 25b815284efeda1cb3db886c75ef526a44f88c4a8156d7e17a2d53c1e79b953c
 
 build:
   number: 0
   skip: True  # [py<31]
   script:
+    - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
