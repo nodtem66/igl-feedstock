@@ -4,4 +4,5 @@ set CXXFLAGS=%CXXFLAGS:-GL=%
 set CFLAGS=%CFLAGS:-GL=%
 
 set "CMAKE_GENERATOR=NMake Makefiles"
-{{ PYTHON }} -m pip install . --no-deps -vv
+python --version
+python -m pip install . --no-deps -vv
