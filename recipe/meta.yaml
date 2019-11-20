@@ -12,9 +12,6 @@ source:
 build:
   number: 0
   skip: True  # [py<31]
-  script:
-    - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
-    - "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
