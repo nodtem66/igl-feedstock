@@ -3,7 +3,7 @@ About igl
 
 Home: https://libigl.github.io
 
-Package license: GPL-3.0
+Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
