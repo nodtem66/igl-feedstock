@@ -1,5 +1,5 @@
 {% set name = "igl" %}
-{% set version = "0.5" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: d6c670804514231611707628055f8436fe7715e8f92bb565f80b9dd9dc3c2c95
+  sha256: f9ec8ed2217b09731845ece62ba4df4667f34945080a83a1a292c0a54ba1f119
 
 build:
   number: 0
@@ -48,8 +48,8 @@ about:
     finite-elements matrices such as the cotangent Laplacian and
     diagonalized mass matrix, and
     simple facet and edge-based topology data structures.
-  doc_url: https://libigl.github.io/tutorial/
-  dev_url: https://github.com/libigl/libigl/
+  doc_url: https://libigl.github.io/libigl-python-bindings/
+  dev_url: https://github.com/libigl/libigl-python-bindings
 
 extra:
   recipe-maintainers:
