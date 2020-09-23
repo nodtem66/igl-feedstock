@@ -1,5 +1,5 @@
 {% set name = "igl" %}
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: f9ec8ed2217b09731845ece62ba4df4667f34945080a83a1a292c0a54ba1f119
+  sha256: 6bf6483a493783aba029a2ff28fcca7cf11d9dbaa3fb2b8921683c8317757b47
 
 build:
   number: 0
-  skip: True  # [py<31]
+  skip: true  # [py<31]
 
 requirements:
   build:
@@ -40,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.TXT
-  summary: 'Simple python geometry processing library'
+  summary: Simple python geometry processing library
   description: |
     libigl is a simple python and C++ geometry processing library.
     We have a wide functionality including construction of
