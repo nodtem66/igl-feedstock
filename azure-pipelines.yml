@@ -7,32 +7,31 @@ parameters:
     type: string
     default: 'False'
 
-parameters:
   - name: only_target_os
     displayName: Only target OS
     type: string
     default: ''
 
 variables:
-  isLinux: $[eq(parameters.only_target_os, 'linux')]
-  isOsx: $[eq(parameters.only_target_os, 'osx')]
-  isWindow: $[eq(parameters.only_target_os, 'window')]
-  isAll: $[eq(parameters.only_target_os, '')]
+  isLinux: ${{ eq(parameters.only_target_os, 'linux') }}
+  isOsx: ${{ eq(parameters.only_target_os, 'osx') }}
+  isWindow: ${{ eq(parameters.only_target_os, 'window') }}
+  isAll: ${{ eq(parameters.only_target_os, '') }}
 
 trigger: none
 
 jobs:
   - ${{ if or(variables.isLinux, variables.isAll) }}:
-    - template: azure-pipelines-linux.yml
+    - template: .azure-pipelines/azure-pipelines-linux.yml
       parameters:
         UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
 
   - ${{ if or(variables.isWindow, variables.isAll) }}:
-    - template: azure-pipelines-win.yml
+    - template: .azure-pipelines/azure-pipelines-win.yml
       parameters:
         UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
 
   - ${{ if or(variables.isOsx, variables.isAll) }}:
-    - template: azure-pipelines-osx.yml
+    - template: .azure-pipelines/azure-pipelines-osx.yml
       parameters:
         UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
