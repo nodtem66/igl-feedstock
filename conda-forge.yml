@@ -4,5 +4,9 @@ conda_forge_output_validation: false
 github:
   user_or_org: nodtem66
   branch_name: master
-targets:
-  - ["nodtem66", "main"]
+channels:
+  sources:
+    - conda-forge
+    - defaults
+  targets:
+    - ["nodtem66", "main"]

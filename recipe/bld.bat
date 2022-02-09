@@ -4,6 +4,5 @@ REM set "CXXFLAGS=%CXXFLAGS:-GL=%"
 REM set "CFLAGS=%CFLAGS:-GL=%"
 set "CXXFLAGS= -MD"
 
-set "CMAKE_GENERATOR=Ninja"
 python --version
 python -m pip install . --no-deps -vv

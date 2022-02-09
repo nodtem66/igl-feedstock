@@ -1,8 +1,38 @@
 # This file was generated automatically from conda-smithy. To update this configuration,
 # update the conda-forge.yml and/or the recipe/meta.yaml.
 # -*- mode: yaml -*-
+parameters:
+  - name: upload_to_anaconda
+    displayName: Upload to Anaconda?
+    type: string
+    default: 'False'
+
+parameters:
+  - name: only_target_os
+    displayName: Only target OS
+    type: string
+    default: ''
+
+variables:
+  isLinux: $[eq(parameters.only_target_os, 'linux')]
+  isOsx: $[eq(parameters.only_target_os, 'osx')]
+  isWindow: $[eq(parameters.only_target_os, 'window')]
+  isAll: $[eq(parameters.only_target_os, '')]
+
+trigger: none
 
 jobs:
-  - template: ./.azure-pipelines/azure-pipelines-linux.yml
-  - template: ./.azure-pipelines/azure-pipelines-win.yml
-  - template: ./.azure-pipelines/azure-pipelines-osx.yml
+  - ${{ if or(variables.isLinux, variables.isAll) }}:
+    - template: azure-pipelines-linux.yml
+      parameters:
+        UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
+
+  - ${{ if or(variables.isWindow, variables.isAll) }}:
+    - template: azure-pipelines-win.yml
+      parameters:
+        UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
+
+  - ${{ if or(variables.isOsx, variables.isAll) }}:
+    - template: azure-pipelines-osx.yml
+      parameters:
+        UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}

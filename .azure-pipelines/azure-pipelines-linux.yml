@@ -1,6 +1,10 @@
 # This file was generated automatically from conda-smithy. To update this configuration,
 # update the conda-forge.yml and/or the recipe/meta.yaml.
 # -*- mode: yaml -*-
+parameters:
+- name: UPLOAD_PACKAGES
+  type: string
+  default: 'False'
 
 jobs:
 - job: linux
@@ -10,19 +14,19 @@ jobs:
     matrix:
       linux_64_numpy1.18python3.7.____cpython:
         CONFIG: linux_64_numpy1.18python3.7.____cpython
-        UPLOAD_PACKAGES: 'True'
+        UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_numpy1.18python3.8.____cpython:
         CONFIG: linux_64_numpy1.18python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
+        UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_numpy1.19python3.7.____73_pypy:
         CONFIG: linux_64_numpy1.19python3.7.____73_pypy
-        UPLOAD_PACKAGES: 'True'
+        UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_numpy1.19python3.9.____cpython:
         CONFIG: linux_64_numpy1.19python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
+        UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
 
