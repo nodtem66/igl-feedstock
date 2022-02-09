@@ -1,16 +1,16 @@
 {% set name = "igl" %}
-{% set version = "2.2.1" %}
+{% set version = "2022.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/geometryprocessing/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: 6bf6483a493783aba029a2ff28fcca7cf11d9dbaa3fb2b8921683c8317757b47
+  url: https://github.com/nodtem66/libigl-python-bindings/archive/{{ version }}.tar.gz
+  sha256: dcbce4695e15766d00776418668b37ff96c91483b546453df905f0fcb5910d7b
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<31]
 
 requirements:
@@ -57,3 +57,4 @@ extra:
     - fwilliams
     - skoch9
     - danielepanozzo
+    - nodtem66

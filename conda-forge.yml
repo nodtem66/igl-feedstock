@@ -1,3 +1,8 @@
 provider:
   win: azure
-conda_forge_output_validation: true
+conda_forge_output_validation: false
+github:
+  user_or_org: nodtem66
+  branch_name: master
+targets:
+  - ["nodtem66", "main"]
