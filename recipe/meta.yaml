@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/nodtem66/libigl-python-bindings/archive/{{ version }}.tar.gz
-  sha256: 60a14e82b9444c75b5863ff3f2237baa121ffd88c7bd60d285f3ddd58470e3b0
+  sha256: e4cd4eea8da01503a8e1956b3e225c41d23995253f352e960f315b3ef49d831d
 
 build:
   number: 0
