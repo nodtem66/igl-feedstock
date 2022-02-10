@@ -6,6 +6,10 @@ parameters:
   type: string
   default: 'False'
 
+- name: ENABLE
+  type: boolean
+  default: true
+
 jobs:
 - job: linux
   pool:
@@ -29,7 +33,7 @@ jobs:
         UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
-
+  condition: eq('${{ parameters.ENABLE }}', 'true')
   steps:
   - script: |
          rm -rf /opt/ghc

@@ -5,6 +5,9 @@ parameters:
 - name: UPLOAD_PACKAGES
   type: string
   default: 'False'
+- name: ENABLE
+  type: boolean
+  default: true
   
 jobs:
 - job: osx
@@ -25,7 +28,7 @@ jobs:
         CONFIG: osx_64_numpy1.19python3.9.____cpython
         UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
   timeoutInMinutes: 360
-
+  condition: eq('${{ parameters.ENABLE }}', 'true')
   steps:
   # TODO: Fast finish on azure pipelines?
   - script: |

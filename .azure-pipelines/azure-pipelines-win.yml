@@ -5,6 +5,9 @@ parameters:
 - name: UPLOAD_PACKAGES
   type: string
   default: 'False'
+- name: ENABLE
+  type: boolean
+  default: true
 
 jobs:
 - job: win
@@ -22,9 +25,9 @@ jobs:
         CONFIG: win_64_numpy1.19python3.9.____cpython
         UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
   timeoutInMinutes: 360
+  condition: eq('${{ parameters.ENABLE }}', 'true')
   variables:
     CONDA_BLD_PATH: D:\\bld\\
-
   steps:
     - script: |
         choco install vcpython27 -fdv -y --debug
