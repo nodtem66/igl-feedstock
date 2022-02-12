@@ -34,4 +34,4 @@ jobs:
   - template: .azure-pipelines/azure-pipelines-osx.yml
     parameters:
       UPLOAD_PACKAGES: ${{ parameters.upload_to_anaconda }}
-      ENABLE: ${{ or(variables.isWindow, variables.isAll) }}
+      ENABLE: ${{ or(variables.isOsx, variables.isAll) }}

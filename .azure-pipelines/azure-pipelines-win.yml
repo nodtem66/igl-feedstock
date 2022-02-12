@@ -7,7 +7,7 @@ parameters:
   default: 'False'
 - name: ENABLE
   type: boolean
-  default: true
+  default: false
 
 jobs:
 - job: win
@@ -103,7 +103,7 @@ jobs:
       displayName: Build recipe
       env:
         PYTHONUNBUFFERED: 1
-      condition: not(contains(variables['CONFIG'], 'vs2008'))
+      condition: and(not(contains(variables['CONFIG'], 'vs2008')), eq('${{ parameters.ENABLE }}', 'true'))
     - script: |
         set "FEEDSTOCK_NAME=%BUILD_REPOSITORY_NAME:*/=%"
         call activate base
@@ -120,4 +120,4 @@ jobs:
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
         FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
         STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
-      condition: and(succeeded(), not(eq(variables['UPLOAD_PACKAGES'], 'False')), not(eq(variables['Build.Reason'], 'PullRequest')))
+      condition: and(succeeded(), eq('${{ parameters.ENABLE }}', 'true'), not(eq(variables['UPLOAD_PACKAGES'], 'False')), not(eq(variables['Build.Reason'], 'PullRequest')))

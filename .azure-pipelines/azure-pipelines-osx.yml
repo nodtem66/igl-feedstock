@@ -7,7 +7,7 @@ parameters:
   default: 'False'
 - name: ENABLE
   type: boolean
-  default: true
+  default: false
   
 jobs:
 - job: osx
@@ -20,9 +20,6 @@ jobs:
         UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
       osx_64_numpy1.18python3.8.____cpython:
         CONFIG: osx_64_numpy1.18python3.8.____cpython
-        UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
-      osx_64_numpy1.19python3.7.____73_pypy:
-        CONFIG: osx_64_numpy1.19python3.7.____73_pypy
         UPLOAD_PACKAGES: ${{ parameters.UPLOAD_PACKAGES }}
       osx_64_numpy1.19python3.9.____cpython:
         CONFIG: osx_64_numpy1.19python3.9.____cpython
@@ -43,6 +40,7 @@ jobs:
       fi
       ./.scripts/run_osx_build.sh
     displayName: Run OSX build
+    condition: eq('${{ parameters.ENABLE }}', 'true')
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
       FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
